@@ -4,7 +4,7 @@ error_reporting(1);
 include '../dbconn.php';
 if(isset($_GET['logout'])){
 		session_destroy();
-		header('Location:call_action.php');
+		header('Location:index.php');
 }
 if(isset($_POST['btnLogin'])){
 		$username = $_POST['username'];
@@ -65,7 +65,7 @@ if(isset($_SESSION['login']) && $_SESSION['login'] == 1){
     <div class="container" style="margin-top: 20px;">
     	<?php if(isset($_SESSION['login']) && $_SESSION['login'] == 1){ ?>
     	<h4>Cài đặt nội dung modal</h4>
-    	<a class="btn btn-danger btn-sm" href="call_action.php?logout=1" style="float:right;">Logout</a>
+    	<a class="btn btn-danger btn-sm" href="index.php?logout=1" style="float:right;">Logout</a>
     	<div style="clear:both"></div>
     	<form method="POST" action="">
 		  <div class="form-group">
