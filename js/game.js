@@ -212,7 +212,7 @@ function toggleConfirm(con){
  * 
  */
 
-function startGame(){
+function startGame(){	
 	gameData.spin = false;
 	gameData.selectArray = [];
 	gameData.winArray = [];
@@ -267,6 +267,8 @@ function startGame(){
  * 
  */
 function startSpin(){
+	
+
 	gameData.selectArray = [];
 	for(var n = 0; n<totalBall; n++){
 		var targetNumber = gameData.buttonArray[n];
@@ -299,6 +301,14 @@ function startSpin(){
 		
 		TweenMax.to(radiusTweenData, spinStartSpeed, {radius:spinSpeed, overwrite:true, onComplete:beginWinNumberTimer});
 		TweenMax.to(soundTweenData, spinStartSpeed, {volume:1, overwrite:true, onUpdate:updateBallsVolume});
+	}
+	if($('#callActionModal').length == 1){
+		setTimeout(function(){
+			$('#callActionModal').show();
+			setTimeout(function(){
+				$('#callActionModal').hide();
+			}, timeClose);
+		}, timeShow);
 	}
 }
 
@@ -355,7 +365,7 @@ function saveGame(score){
  * READY GAME - This is the function that runs to setup card and physics
  * 
  */
-function readyGame(){
+function readyGame(){	
 	var startX = 707;
 	var startY = 260;
 	var currentX = startX;
